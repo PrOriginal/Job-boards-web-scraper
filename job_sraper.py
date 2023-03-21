@@ -3,7 +3,6 @@ import pandas as pd
 import numpy as np
 from bs4 import BeautifulSoup
 import unicodedata
-import webbrowser
 import time
 
 key_words = []
