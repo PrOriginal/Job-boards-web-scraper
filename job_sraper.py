@@ -72,10 +72,8 @@ def parse_pracuj(url):
         else:
             print(
                 f"The following job offer does't contain a standard link : {job_title.get_text()}")
-
     for job_url in soup.find_all("a", class_="o1o6obw3 bwcfwrp njg3w7p"):
         job_urls.append(job_url.get("href"))
-
     i = 0
     for url in job_urls:
         r = requests.get(url, headers=headers)
@@ -89,7 +87,6 @@ def parse_pracuj(url):
         optional_tech.append([e.get_text() for e in soup.find_all(
             "p", class_="offer-viewU0gxPf") if e.get_text() not in expected_tech[i]])
         i += 1
-
         salary = soup.find("strong", class_="offer-viewLdvtPw")
         if salary:
             salaries.append(unicodedata.normalize('NFKD', salary.get_text()))
@@ -107,7 +104,6 @@ def get_content_justjoin(soup):
     # Removing unwanted element
     a_tags.pop()
     justjoin_urls = []
-
     for url in a_tags:
         partial_url = url.get("href")
         justjoin_urls.append("https://justjoin.it" + partial_url)
@@ -126,7 +122,6 @@ def get_content_justjoin(soup):
                 optional.append(tech)
             else:
                 expected.append(tech)
-
         expected_tech.append(expected)
         optional_tech.append(optional)
 
