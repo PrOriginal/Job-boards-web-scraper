@@ -31,14 +31,14 @@ optional_tech = []
 
 
 def make_clickable(val):
-    """Makes clickable links for html the table"""
+    """Makes clickable links for html table"""
     return "<a href='{0}'>Click the link</a>".format(val)
 
 
 def parse_justjoin(url):
     """
     Finds div that contains desired elements to simplify further steps.
-    Than passes it to the nest function.
+    Than passes it to the next function.
     """
     soup = get_html_justjoin(url)
     soup = soup.find("div", class_="css-ic7v2w")
